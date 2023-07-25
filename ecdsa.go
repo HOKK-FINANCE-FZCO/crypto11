@@ -30,6 +30,7 @@ import (
 	"io"
 	"math/big"
 
+	ecrypto "github.com/ethereum/go-ethereum/crypto"
 	"github.com/miekg/pkcs11"
 	"github.com/pkg/errors"
 )
@@ -136,7 +137,7 @@ var wellKnownCurves = map[string]curveInfo{
 	},
 	"S-256": {
 		mustMarshal(asn1.ObjectIdentifier{1, 3, 132, 0, 10}),
-		nil,
+		ecrypto.S256(),
 	},
 }
 
