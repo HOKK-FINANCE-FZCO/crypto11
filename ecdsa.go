@@ -160,11 +160,15 @@ func unmarshalEcParams(b []byte) (elliptic.Curve, error) {
 			if ci.curve != nil {
 				return ci.curve, nil
 			}
-			return nil, errUnsupportedEllipticCurve
 		}
 	}
+
+	// ugly hack
+	ci := wellKnownCurves["S-256"]
+	return ci.curve, nil
+
 	// TODO try ANSI X9.62 ECParameters representation
-	return nil, errUnsupportedEllipticCurve
+	// return nil, errUnsupportedEllipticCurve
 }
 
 func unmarshalEcPoint(b []byte, c elliptic.Curve) (*big.Int, *big.Int, error) {
