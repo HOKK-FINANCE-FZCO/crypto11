@@ -1,4 +1,4 @@
-module github.com/kamushadenes/crypto11
+module github.com/HOKK-FINANCE-FZCO/crypto11
 
 go 1.13
 
